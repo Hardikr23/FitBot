@@ -1,9 +1,9 @@
+import src.config as config
 from google.adk.agents import LlmAgent
 from google.adk.tools.agent_tool import AgentTool
 from src.helper_agents.injury_agent import injury_doc
 from src.helper_agents.nutrition_agent import nutrition_doc
 from src.prompts.big_doc import big_doc_desc, big_doc_inst
-import src.config as config
 
 # List of sub-agents to be used as tools
 sub_agents = [nutrition_doc, injury_doc]

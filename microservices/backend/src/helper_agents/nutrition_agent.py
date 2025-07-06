@@ -1,7 +1,7 @@
+import src.config as config
 from google.adk.agents import LlmAgent
 from src.prompts.nutrition_agent import nutrition_agent_desc
 from src.tools.nutrition_tool import get_nutrition_advice_tool
-import src.config as config
 
 # Define individual agents
 nutrition_doc = LlmAgent(

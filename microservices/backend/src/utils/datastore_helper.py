@@ -1,9 +1,7 @@
+import src.config as config
 from google.api_core.client_options import ClientOptions
 from google.cloud import discoveryengine_v1 as discoveryengine
 from google.protobuf.json_format import MessageToDict
-
-
-import src.config as config
 from src.prompts.injury_agent import injury_agent_template
 from src.prompts.nutrition_agent import nutrition_agent_template
 
