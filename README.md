@@ -9,6 +9,8 @@ chunk size: 200 tokens with ancestral headings
 
 2 different vertex search apps are setup for injuries and nutrition having their respective datastores
 
+
+
 # Agent Development iterations
 testing single agent on server
 
