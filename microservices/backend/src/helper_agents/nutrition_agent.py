@@ -1,5 +1,5 @@
 from google.adk.agents import LlmAgent
-from src.prompts.nutrition_agent import nutrition_agent_desc, nutrition_agent_inst
+from src.prompts.nutrition_agent import nutrition_agent_desc
 from src.tools.nutrition_tool import get_nutrition_advice_tool
 import src.config as config
 
