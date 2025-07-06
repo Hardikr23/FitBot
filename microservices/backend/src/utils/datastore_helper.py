@@ -19,12 +19,17 @@ def clean_response(agent_response: discoveryengine.AnswerQueryResponse) -> dict:
     response_dict = MessageToDict(agent_response._pb)
 
     summary = response_dict.get("summary", None).get("summaryText", None)
-    references = [{"title": item["document"]["derivedStructData"]["title"],
-                   "url": item["document"]["derivedStructData"]["link"]} for item in response_dict["results"]]
+    references = [
+        {
+            "title": item["document"]["derivedStructData"]["title"],
+            "url": item["document"]["derivedStructData"]["link"],
+        }
+        for item in response_dict["results"]
+    ]
     clean_response_dict = {
         "status": "Succcess",
         "agent_answer": summary,
-        "references": references
+        "references": references,
     }
 
     return clean_response_dict
@@ -34,8 +39,7 @@ def vertex_search_app(
     engine_id: str, search_query: str,
 ) -> discoveryengine.services.search_service.pagers.SearchPager:
     client_options = (
-        ClientOptions(
-            api_endpoint=f"{config.LOCATION}-discoveryengine.googleapis.com")
+        ClientOptions(api_endpoint=f"{config.LOCATION}-discoveryengine.googleapis.com")
         if config.LOCATION != "global"
         else None
     )

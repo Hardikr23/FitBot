@@ -12,20 +12,20 @@ chunk size: 200 tokens with ancestral headings
 # Agent Development iterations
 testing single agent on server
 
-curl -X POST http://localhost:8000/apps/agents/users/test/sessions/test \
+curl -X POST http://localhost:8000/apps/src/users/test/sessions/test \
   -H "Content-Type: application/json" \
   -d '{"state": {"key1": "value1", "key2": 42}}'
 
 curl -X POST http://localhost:8000/run \
 -H "Content-Type: application/json" \
 -d '{
-"appName": "agents",
+"appName": "src",
 "userId": "test",
 "sessionId": "test",
 "newMessage": {
     "role": "user",
     "parts": [{
-    "text": "Hello"
+    "text": "i need sports nutrition advice for running long distance 42km"
     }]
 }
 }'
