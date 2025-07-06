@@ -1,0 +1,6 @@
+PROJECT_ID = "gen-lang-client-0353594207"
+LOCATION = "global"          # Values: "global", "us", "eu"
+INJURY_ENGINE_ID = "sports-injuries-app_1751756910977"
+INJURY_DS_ID = "injuries-ds_1751759259630"
+NUTRITION_DS_ID = "nutrition-ds_1751759321539"
+NUTRITION_ENGINE_ID = "	sports-nutrition-app_1751756420927"
