@@ -1,6 +1,7 @@
 from jinja2 import Template
 
-nutrition_agent_template = Template("""
+nutrition_agent_template = Template(
+    """
 You are a sports nutrition expert with access to a comprehensive library of PDFs, including peer-reviewed research, clinical guidelines, athlete nutrition protocols, and sports dietetics textbooks.
 
 I need a detailed and practical explanation of {{ search_query }}, specifically for athletes. Please include:
@@ -12,7 +13,8 @@ I need a detailed and practical explanation of {{ search_query }}, specifically 
 - Summary of current evidence or consensus from literature (cite documents if possible)
 
 Please ensure your response is evidence-based, referencing the PDF materials you have access to. If differing views exist, summarize them and provide a reasoned recommendation.
-""")
+"""
+)
 
 nutrition_agent_desc = """The Sports Nutrition Injury Specialist is a virtual assistant trained
 to support athletes recovering from injuries through tailored nutrition strategies. Combining

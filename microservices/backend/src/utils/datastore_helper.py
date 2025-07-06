@@ -7,12 +7,10 @@ from src.prompts.nutrition_agent import nutrition_agent_template
 
 
 def vertex_search_app(
-    engine_id: str,
-    search_query: str,
+    engine_id: str, search_query: str,
 ) -> discoveryengine.services.search_service.pagers.SearchPager:
     client_options = (
-        ClientOptions(
-            api_endpoint=f"{config.LOCATION}-discoveryengine.googleapis.com")
+        ClientOptions(api_endpoint=f"{config.LOCATION}-discoveryengine.googleapis.com")
         if config.LOCATION != "global"
         else None
     )
@@ -24,7 +22,9 @@ def vertex_search_app(
     serving_config = f"projects/{config.PROJECT_ID}/locations/{config.LOCATION}/collections/default_collection/engines/{engine_id}/servingConfigs/default_config"
 
     # defining the prompt
-    prompt_template = injury_agent_template if "injury" in engine_id else nutrition_agent_template
+    prompt_template = (
+        injury_agent_template if "injury" in engine_id else nutrition_agent_template
+    )
     agent_prompt = prompt_template.render(search_query=search_query)
 
     content_search_spec = discoveryengine.SearchRequest.ContentSearchSpec(
