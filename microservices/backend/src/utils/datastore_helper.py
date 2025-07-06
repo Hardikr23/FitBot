@@ -1,16 +1,41 @@
 from google.api_core.client_options import ClientOptions
 from google.cloud import discoveryengine_v1 as discoveryengine
+from google.protobuf.json_format import MessageToDict
+
 
 import src.config as config
 from src.prompts.injury_agent import injury_agent_template
 from src.prompts.nutrition_agent import nutrition_agent_template
 
 
+def clean_response(agent_response: discoveryengine.AnswerQueryResponse) -> dict:
+    """
+    Cleans the raw response from the Conversational Search API.
+    Args:
+        agent_response (discoveryengine.AnswerQueryResponse): The raw response object.
+    Returns:
+        dict: A dictionary containing the cleaned response.
+    """
+    response_dict = MessageToDict(agent_response._pb)
+
+    summary = response_dict.get("summary", None).get("summaryText", None)
+    references = [{"title": item["document"]["derivedStructData"]["title"],
+                   "url": item["document"]["derivedStructData"]["link"]} for item in response_dict["results"]]
+    clean_response_dict = {
+        "status": "Succcess",
+        "agent_answer": summary,
+        "references": references
+    }
+
+    return clean_response_dict
+
+
 def vertex_search_app(
     engine_id: str, search_query: str,
 ) -> discoveryengine.services.search_service.pagers.SearchPager:
     client_options = (
-        ClientOptions(api_endpoint=f"{config.LOCATION}-discoveryengine.googleapis.com")
+        ClientOptions(
+            api_endpoint=f"{config.LOCATION}-discoveryengine.googleapis.com")
         if config.LOCATION != "global"
         else None
     )
@@ -59,7 +84,6 @@ def vertex_search_app(
     )
 
     page_result = client.search(request)
+    cleaned_response = clean_response(page_result)
 
-    # TODO: Need to add function to clean the response and return only relevant data
-
-    return page_result
+    return cleaned_response
