@@ -20,13 +20,16 @@ def get_nutrition_advice_tool(user_query: str):
     """
     print(
         # Log tool execution
-        f"--- Tool: get_nutrition_advice_tool called for query: {user_query} ---")
+        f"--- Tool: get_nutrition_advice_tool called for query: {user_query} ---"
+    )
     try:
         tool_result = vertex_search_app(
-            engine_id=config.NUTRITION_ENGINE_ID,
-            search_query=user_query,
+            engine_id=config.NUTRITION_ENGINE_ID, search_query=user_query,
         )
         return tool_result
     except Exception as e:
         print(f"Error in get_nutrition_advice_tool. Details: {e}")
-        return {"status": "error", "error_message": f"Sorry, I am unable to access my datasource to fetch nutrition advice."}
+        return {
+            "status": "error",
+            "error_message": f"Sorry, I am unable to access my datasource to fetch nutrition advice.",
+        }
