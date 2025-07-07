@@ -4,6 +4,9 @@
 
 ---
 
+## Access the Application
+The application can be accessed [here](https://sports-doctor-137358858062.europe-west2.run.app)
+
 ## 🚀 Key Features
 
 - 🧠 **Multi-agent architecture** for modular specialization:
