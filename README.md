@@ -30,30 +30,30 @@ This project utilizes Google Cloud’s Vertex AI Agent Builder as a knowledge ba
 ## 🗂️ Repository Structure
 <pre>
 .
-├── LICENSE <br>
-├── README.md <br>
-├── microservices  <br>
-│   ├── backend -----------------------------> has the complete backend code written usinfADK framework <br>
-│   │   ├── cr_deployment.sh ----------------> the script to deploy the agent to a cloud run service <br>
-│   │   └── src <br>
-│   │       ├── __init__.py <br>
-│   │       ├── agent.py --------------------> the main parent agent <br>
-│   │       ├── config.py -------------------> constants definition <br>
-│   │       ├── helper_agents ---------------> helper agents for nutrition and injury advice <br>
-│   │       │   ├── injury_agent.py <br>
-│   │       │   └── nutrition_agent.py <br>
-│   │       ├── prompts ---------------------> has all the prompts and agent descriptions used by different agents <br>
-│   │       │   ├── big_doc.py <br>
-│   │       │   ├── injury_agent.py <br>
-│   │       │   └── nutrition_agent.py <br>
-│   │       ├── requirements.txt ------------> has all the python modules required to run the agents <br>
-│   │       ├── tools -----------------------> contains all the tools used by all the agents <br>
-│   │       │   ├── injury_tool.py <br>
-│   │       │   └── nutrition_tool.py <br>
-│   │       └── utils -----------------------> any utility function being used by the agents <br>
-│   │           └── datastore_helper.py -----> function to query the vertex AI search apps with references <br>
-│   └── frontend ----------------------------> currently empty as we are using the built in ADK UI <br>
-└── tests -----------------------------------> currently empty <br>
+├── LICENSE 
+├── README.md 
+├── microservices  
+│   ├── backend -----------------------------> has the complete backend code written usinfADK framework 
+│   │   ├── cr_deployment.sh ----------------> the script to deploy the agent to a cloud run service 
+│   │   └── src 
+│   │       ├── __init__.py 
+│   │       ├── agent.py --------------------> the main parent agent 
+│   │       ├── config.py -------------------> constants definition 
+│   │       ├── helper_agents ---------------> helper agents for nutrition and injury advice 
+│   │       │   ├── injury_agent.py 
+│   │       │   └── nutrition_agent.py 
+│   │       ├── prompts ---------------------> has all the prompts and agent descriptions used by different agents 
+│   │       │   ├── big_doc.py 
+│   │       │   ├── injury_agent.py 
+│   │       │   └── nutrition_agent.py 
+│   │       ├── requirements.txt ------------> has all the python modules required to run the agents 
+│   │       ├── tools -----------------------> contains all the tools used by all the agents 
+│   │       │   ├── injury_tool.py 
+│   │       │   └── nutrition_tool.py 
+│   │       └── utils -----------------------> any utility function being used by the agents 
+│   │           └── datastore_helper.py -----> function to query the vertex AI search apps with references 
+│   └── frontend ----------------------------> currently empty as we are using the built in ADK UI 
+└── tests -----------------------------------> currently empty 
 </pre>
 
 ---
