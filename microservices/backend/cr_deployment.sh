@@ -11,7 +11,7 @@ export AGENT_PATH="./src" # Assuming capital_agent is in the current directory
 export SERVICE_NAME="sports-doctor"
 
 # Set an application name (optional)
-export APP_NAME="sports-doctor-app"
+export APP_NAME="src"
 
 adk deploy cloud_run \
 --project=$GOOGLE_CLOUD_PROJECT \
